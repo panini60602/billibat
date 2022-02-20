@@ -5,6 +5,7 @@ import 'bowlard.dart';
 import 'header.dart';
 import 'koukoku.dart';
 
+//メイン
 void main() {
   runApp(const MyApp());
 }
