@@ -2,8 +2,9 @@
 import 'package:flutter/material.dart';
 
 import 'bowlard.dart';
+import 'cutoff.dart';
 import 'header.dart';
-import 'koukoku.dart';
+//import 'koukoku.dart';
 
 //メイン
 void main() {
@@ -35,9 +36,18 @@ class MyAppState extends State<MyApp> {
               child: Button01(),
             ),
             Positioned(
+              top: 90.0,
+              width: 300.0,
+              height: 50.0,
+              child: Button02(),
+            ),
+/*
+広告
+            Positioned(
               bottom: 0.0,
               child: Koukoku(),
             ),
+ */
           ],
           fit: StackFit.expand,
         ),
@@ -70,12 +80,26 @@ class Button01 extends StatelessWidget {
   }
 }
 
-/*
-class Koukoku extends StatelessWidget {
-  const Koukoku({Key key}) : super(key: key);
+//3球取り切りボタン
+class Button02 extends StatelessWidget {
+  const Button02({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return const AdBanner(size: AdSize.banner);
+    return ElevatedButton(
+      child: const Text('cutoff', style: TextStyle(fontSize: 24)),
+      style: ElevatedButton.styleFrom(
+        primary: Colors.grey[200],
+        onPrimary: Colors.black,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+      ),
+      onPressed: () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+          return const CutOff();
+        }));
+      },
+    );
   }
 }
-*/

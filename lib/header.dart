@@ -40,3 +40,19 @@ class HeaderBowlard extends StatelessWidget with PreferredSizeWidget {
     );
   }
 }
+
+class HeaderCutOff extends StatelessWidget with PreferredSizeWidget {
+  const HeaderCutOff({Key? key}) : super(key: key);
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      automaticallyImplyLeading: true,
+      title: const Text('cutoff'),
+      backgroundColor: Colors.brown,
+    );
+  }
+}

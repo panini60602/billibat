@@ -165,10 +165,10 @@ class _MyScoreHyoTate extends State<ScoreHyoTate> {
 
   @override
   Widget build(BuildContext context) {
-    double tate = MediaQuery.of(context).size.height;
-    double masSize = tate / 30;
-    double hyoSize = 40 + (masSize * 8) + 100;
-    double koukokuSize = 80;
+    double tate = MediaQuery.of(context).size.height - AppBar().preferredSize.height;
+    double masSize = tate / 28;
+    double hyoSize = 40 + (masSize * 8) + 90;
+    double koukokuSize = 50;
     double btnDan = 5;
     double btnSize = (tate - hyoSize - koukokuSize) / btnDan;
 
