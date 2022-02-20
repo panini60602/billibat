@@ -1,6 +1,6 @@
 # billibat
 
-A new Flutter project.
+ビリバト！
 
 ## Getting Started
 
