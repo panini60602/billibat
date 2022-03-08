@@ -1,32 +1,38 @@
+/*
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:nend_plugin/nend_plugin.dart';
+
 
 class AdBanner extends StatelessWidget {
-  const AdBanner({
-    required this.size,
-    Key? key,
-  }) : super(key: key);
+  final BannerAdController adController;
 
   final AdSize size;
+
+  const AdBanner({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final banner = BannerAd(
-        size: size,
-        adUnitId: bannerAdUnitId,
-        listener: BannerAdListener(
-          onAdLoaded: (Ad ad) => debugPrint('Ad loaded.'),
-          onAdFailedToLoad: (Ad ad, LoadAdError error) {
-            debugPrint('Ad failed to load: $error');
-          },
-          onAdOpened: (Ad ad) => debugPrint('Ad opened.'),
-          onAdClosed: (Ad ad) => debugPrint('Ad closed.'),
-        ),
-        request: const AdRequest())
-      ..load();
+        bannerSize: BannerSize.type320x50,
+        listener: _eventListener(),
+        onCreated: (controller) {
+          adController = controller;
+          adController.load(spotId: spotId, apiKey: apiKey);
+        },
+    ),
+//    return SizedBox(width: banner.size.width.toDouble(), height: banner.size.height.toDouble(), child: AdWidget(ad: banner));
+  }
 
-    return SizedBox(width: banner.size.width.toDouble(), height: banner.size.height.toDouble(), child: AdWidget(ad: banner));
+  BannerAdListener _eventListener() {
+    return BannerAdListener(
+      onLoaded: () => print('onLoaded'),
+      onReceiveAd: () => print('onReceived'),
+      onFailedToLoad: () => print('onFailedToLoad'),
+      onAdClicked: () => print('onAdClicked'),
+      onInformationClicked: () => print('onInformationClicked'),
+    );
   }
 
   // 広告ID
@@ -44,3 +50,6 @@ class AdBanner extends StatelessWidget {
     }
   }
 }
+
+
+ */

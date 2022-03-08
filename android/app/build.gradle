@@ -22,7 +22,7 @@ if (flutterVersionName == null) {
 }
 
 apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
@@ -44,7 +44,7 @@ android {
 
     defaultConfig {
         applicationId "pani04.jp.kt.billibat"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -63,11 +63,15 @@ flutter {
 }
 
 dependencies {
+    implementation("com.android.support:multidex:1.0.3")
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 //    implementation platform('com.google.firebase:firebase-bom:29.0.4')
 //    implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.android.gms:play-services-ads:20.5.0'
 //    compile 'com.google.android.gms:play-services-analytics:18.0.1'
 //    implementation 'com.google.firebase:firebase-core:17.2.2'
+    implementation 'net.nend.android:nend-sdk:8.1.0'
 
 }
+

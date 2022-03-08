@@ -25,5 +25,10 @@ public final class GeneratedPluginRegistrant {
     } catch(Exception e) {
       Log.e(TAG, "Error registering plugin google_mobile_ads, io.flutter.plugins.googlemobileads.GoogleMobileAdsPlugin", e);
     }
+    try {
+      flutterEngine.getPlugins().add(new net.nend.nendplugin.NendPlugin());
+    } catch(Exception e) {
+      Log.e(TAG, "Error registering plugin nend_plugin, net.nend.nendplugin.NendPlugin", e);
+    }
   }
 }

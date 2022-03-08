@@ -1,10 +1,12 @@
 // @dart=2.9
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import 'bowlard.dart';
 import 'cutoff.dart';
 import 'header.dart';
-//import 'koukoku.dart';
+import 'nend.dart';
 
 //メイン
 void main() {
@@ -21,6 +23,10 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    log("Debug-Main Start");
+    const double btnSize = 60;
+//    double tate = MediaQuery.of(context).size.height - AppBar().preferredSize.height;
+
     return MaterialApp(
       theme: ThemeData(primarySwatch: Colors.blue),
       home: Scaffold(
@@ -32,22 +38,19 @@ class MyAppState extends State<MyApp> {
             Positioned(
               top: 20.0,
               width: 300.0,
-              height: 50.0,
+              height: btnSize,
               child: Button01(),
             ),
             Positioned(
-              top: 90.0,
+              top: 100.0,
               width: 300.0,
-              height: 50.0,
+              height: btnSize,
               child: Button02(),
             ),
-/*
-広告
             Positioned(
               bottom: 0.0,
-              child: Koukoku(),
+              child: KoukokuNend(),
             ),
- */
           ],
           fit: StackFit.expand,
         ),

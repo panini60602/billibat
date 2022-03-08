@@ -4,7 +4,7 @@ import 'package:billibat/cutoff_buhin.dart';
 import 'package:flutter/material.dart';
 
 import 'header.dart';
-import 'koukoku.dart';
+import 'nend.dart';
 
 class CutOff extends StatefulWidget {
   const CutOff({Key? key}) : super(key: key);
@@ -31,7 +31,7 @@ class _MyCutOff extends State<CutOff> {
                   ),
                   Positioned(
                     bottom: 0.0,
-                    child: Koukoku(),
+                    child: KoukokuNend(),
                   ),
                 ],
                 fit: StackFit.expand,
@@ -45,7 +45,7 @@ class _MyCutOff extends State<CutOff> {
                   ),
                   Positioned(
                     bottom: 0.0,
-                    child: Koukoku(),
+                    child: KoukokuNend(),
                   ),
                 ],
                 fit: StackFit.expand,
@@ -121,13 +121,10 @@ class _MyScoreHyoTate extends State<ScoreHyoTate> {
     double playerYokoSize = 0.38;
     double masYokoSize = 0.12;
 
-    double ruleSize1 = 0.07;
-    double ruleSize2 = 0.88;
     double rule1record = 25;
 
     double clearResetBtnSize = 70;
 
-    //    double btnSize = (tate - hyoSize - koukokuSize) / btnDan;
     double btnSize = 0;
     if (MediaQuery.of(context).size.height < MediaQuery.of(context).size.width) {
       log("画面縦ロジックなのに実際は横画面になっている");
@@ -706,117 +703,86 @@ class _MyScoreHyoTate extends State<ScoreHyoTate> {
                     child: Text("  ※赤字部分はタップでカスタマイズ可能です。", style: TextStyle(fontSize: ruleFontSize, color: Colors.grey[600])),
                   ),
                 ]),
+
+                //ルール１
                 Row(children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * ruleSize1,
-                    child: Container(
-                      height: rule1record,
-                      alignment: Alignment.centerLeft,
-                      child: Text("  ・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                    ),
-                  ),
-                  SizedBox(
+                  Container(
                     height: rule1record,
-                    child: Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text("フット側に", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                    ),
+                    alignment: Alignment.centerLeft,
+                    child: Text("・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
                   ),
-                  SizedBox(
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text("フット側に", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: const SelectRule1(),
+                  ),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: Text("置いてブレイク", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
+                  ),
+                ]),
+
+                //ルール２
+                Row(children: [
+                  Container(
                     height: rule1record,
-                    child: Container(
-                      alignment: Alignment.centerLeft,
-                      child: const SelectRule1(),
-                    ),
+                    alignment: Alignment.centerLeft,
+                    child: Text("・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
                   ),
-                  SizedBox(
+                  Container(
                     height: rule1record,
-                    child: Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text("置いてブレイク", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                    ),
+                    alignment: Alignment.centerLeft,
+                    child: Text(rule2, style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
                   ),
                 ]),
+
+                //ルール３
                 Row(children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * ruleSize1,
-                    child: Container(
-                      height: rule1record,
-                      alignment: Alignment.centerLeft,
-                      child: Text("  ・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                    ),
+                  Container(
+                    height: rule1record,
+                    alignment: Alignment.centerLeft,
+                    child: Text("・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
                   ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * ruleSize2,
-                    child: Container(
-                      height: rule1record,
-                      alignment: Alignment.centerLeft,
-                      child: Text(rule2, style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                    ),
+                  Container(
+                    height: rule1record,
+                    alignment: Alignment.centerLeft,
+                    child: Text("ブレイク後、", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
+                  ),
+                  Container(
+                    height: rule1record,
+                    alignment: Alignment.centerLeft,
+                    child: const SelectRule3(),
                   ),
                 ]),
+
+                //ルール４
                 Row(children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * ruleSize1,
-                    child: Container(
-                      height: rule1record,
-                      alignment: Alignment.centerLeft,
-                      child: Text("  ・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                    ),
+                  Container(
+                    height: rule1record,
+                    alignment: Alignment.centerLeft,
+                    child: Text("・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
                   ),
-                  SizedBox(
-//                    width: MediaQuery.of(context).size.width * ruleSize2 / 2,
-//                    height: 30,
-                    child: Container(
-                      height: rule1record,
-                      alignment: Alignment.centerLeft,
-                      child: Text("ブレイク後、", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                    ),
-                  ),
-                  SizedBox(
-//                    width: MediaQuery.of(context).size.width * ruleSize2 / 2,
-//                    height: 45,
-                    child: Container(
-                      height: rule1record,
-                      alignment: Alignment.centerLeft,
-                      child: const SelectRule3(),
-                    ),
+                  Container(
+                    height: rule1record,
+                    alignment: Alignment.centerLeft,
+                    child: const SelectRule4(),
                   ),
                 ]),
+
+                //ルール５
                 Row(children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * ruleSize1,
-                    child: Container(
-                      height: rule1record,
-                      alignment: Alignment.centerLeft,
-                      child: Text("  ・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                    ),
+                  Container(
+                    height: rule1record,
+                    alignment: Alignment.centerLeft,
+                    child: Text("・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
                   ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * ruleSize2,
-                    child: Container(
-                      height: rule1record,
-                      alignment: Alignment.centerLeft,
-                      child: const SelectRule4(),
-                    ),
-                  ),
-                ]),
-                Row(children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * ruleSize1,
-                    child: Container(
-                      height: rule1record,
-                      alignment: Alignment.centerLeft,
-                      child: Text("  ・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                    ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * ruleSize2,
-                    child: Container(
-                      height: rule1record,
-                      alignment: Alignment.centerLeft,
-                      child: Text(rule5, style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                    ),
+                  Container(
+                    height: rule1record,
+                    alignment: Alignment.centerLeft,
+                    child: Text(rule5, style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
                   ),
                 ]),
               ]),
@@ -850,16 +816,13 @@ class _MyScoreHyoYoko extends State<ScoreHyoYoko> {
     double playerYokoSize = 0.2;
     double masYokoSize = 0.06;
 
-    double ruleSize1 = 0.03;
-    double ruleSize2 = 0.47;
     double rule1record = 25;
 
-    double clearResetBtnSize = 50;
+    double clearResetBtnSize = 40;
 
-    //    double btnSize = (tate - hyoSize - koukokuSize) / btnDan;
     double btnSize = (tate - hyoSize - koukokuSize - clearResetBtnSize - (10 * 3) - 10);
-    if (btnSize > 80) {
-      btnSize = 60;
+    if (btnSize > 90) {
+      btnSize = 70;
     }
     const double maruBatuSize = 30;
 
@@ -1437,117 +1400,89 @@ class _MyScoreHyoYoko extends State<ScoreHyoYoko> {
                       child: Text("  ※赤字部分はタップでカスタマイズ可能です。", style: TextStyle(fontSize: ruleFontSize, color: Colors.grey[600])),
                     ),
                   ]),
+
+                  //ルール１
                   Row(children: [
-                    SizedBox(
-                      width: (MediaQuery.of(context).size.width - 30) * ruleSize1,
-                      child: Container(
-                        height: rule1record,
-                        alignment: Alignment.centerLeft,
-                        child: Text("  ・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                      ),
-                    ),
-                    SizedBox(
+                    Container(
                       height: rule1record,
-                      child: Container(
-                        alignment: Alignment.centerLeft,
-                        child: Text("フット側に", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                      ),
+                      alignment: Alignment.centerLeft,
+                      child: Text("・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
                     ),
-                    SizedBox(
+                    Container(
                       height: rule1record,
-                      child: Container(
-                        alignment: Alignment.centerLeft,
-                        child: const SelectRule1(),
-                      ),
+                      alignment: Alignment.centerLeft,
+                      child: Text("フット側に", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
                     ),
-                    SizedBox(
+                    Container(
                       height: rule1record,
-                      child: Container(
-                        alignment: Alignment.centerLeft,
-                        child: Text("置いてブレイク", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                      ),
+                      alignment: Alignment.centerLeft,
+                      child: const SelectRule1(),
+                    ),
+                    Container(
+                      height: rule1record,
+                      alignment: Alignment.centerLeft,
+                      child: Text("置いてブレイク", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
                     ),
                   ]),
+
+                  //ルール２
                   Row(children: [
-                    SizedBox(
-                      width: (MediaQuery.of(context).size.width - 30) * ruleSize1,
-                      child: Container(
-                        height: rule1record,
-                        alignment: Alignment.centerLeft,
-                        child: Text("  ・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                      ),
+                    Container(
+                      height: rule1record,
+                      alignment: Alignment.centerLeft,
+                      child: Text("・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
                     ),
-                    SizedBox(
-                      width: (MediaQuery.of(context).size.width - 30) * ruleSize2,
-                      child: Container(
-                        height: rule1record,
-                        alignment: Alignment.centerLeft,
-                        child: Text(rule2, style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                      ),
+                    Container(
+                      height: rule1record,
+                      alignment: Alignment.centerLeft,
+                      child: Text(rule2, style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
                     ),
                   ]),
+
+                  //ルール３
                   Row(children: [
-                    SizedBox(
-                      width: (MediaQuery.of(context).size.width - 30) * ruleSize1,
-                      child: Container(
-                        height: rule1record,
-                        alignment: Alignment.centerLeft,
-                        child: Text("  ・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                      ),
+                    Container(
+                      height: rule1record,
+                      alignment: Alignment.centerLeft,
+                      child: Text("・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
                     ),
-                    SizedBox(
-//                    width: MediaQuery.of(context).size.width * ruleSize2 / 2,
-//                    height: 30,
-                      child: Container(
-                        height: rule1record,
-                        alignment: Alignment.centerLeft,
-                        child: Text("ブレイク後、", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                      ),
+                    Container(
+                      height: rule1record,
+                      alignment: Alignment.centerLeft,
+                      child: Text("ブレイク後、", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
                     ),
-                    SizedBox(
-//                    width: MediaQuery.of(context).size.width * ruleSize2 / 2,
-//                    height: 45,
-                      child: Container(
-                        height: rule1record,
-                        alignment: Alignment.centerLeft,
-                        child: const SelectRule3(),
-                      ),
+                    Container(
+                      height: rule1record,
+                      alignment: Alignment.centerLeft,
+                      child: const SelectRule3(),
                     ),
                   ]),
+
+                  //ルール４
                   Row(children: [
-                    SizedBox(
-                      width: (MediaQuery.of(context).size.width - 30) * ruleSize1,
-                      child: Container(
-                        height: rule1record,
-                        alignment: Alignment.centerLeft,
-                        child: Text("  ・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                      ),
+                    Container(
+                      height: rule1record,
+                      alignment: Alignment.centerLeft,
+                      child: Text("・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
                     ),
-                    SizedBox(
-                      width: (MediaQuery.of(context).size.width - 30) * ruleSize2,
-                      child: Container(
-                        height: rule1record,
-                        alignment: Alignment.centerLeft,
-                        child: const SelectRule4(),
-                      ),
+                    Container(
+                      height: rule1record,
+                      alignment: Alignment.centerLeft,
+                      child: const SelectRule4(),
                     ),
                   ]),
+
+                  //ルール５
                   Row(children: [
-                    SizedBox(
-                      width: (MediaQuery.of(context).size.width - 30) * ruleSize1,
-                      child: Container(
-                        height: rule1record,
-                        alignment: Alignment.centerLeft,
-                        child: Text("  ・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                      ),
+                    Container(
+                      height: rule1record,
+                      alignment: Alignment.centerLeft,
+                      child: Text("・", style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
                     ),
-                    SizedBox(
-                      width: (MediaQuery.of(context).size.width - 30) * ruleSize2,
-                      child: Container(
-                        height: rule1record,
-                        alignment: Alignment.centerLeft,
-                        child: Text(rule5, style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
-                      ),
+                    Container(
+                      height: rule1record,
+                      alignment: Alignment.centerLeft,
+                      child: Text(rule5, style: TextStyle(fontSize: ruleFontSize, color: Colors.black)),
                     ),
                   ]),
                 ]),

@@ -2,7 +2,7 @@ import 'package:billibat/bowlard_buhin.dart';
 import 'package:flutter/material.dart';
 
 import 'header.dart';
-import 'koukoku.dart';
+import 'nend.dart';
 
 class Bowlard extends StatefulWidget {
   const Bowlard({Key? key}) : super(key: key);
@@ -31,7 +31,7 @@ class _MyBowlard extends State<Bowlard> {
                   ),
                   Positioned(
                     bottom: 0.0,
-                    child: Koukoku(),
+                    child: KoukokuNend(),
                   ),
                 ],
                 fit: StackFit.expand,
@@ -45,7 +45,7 @@ class _MyBowlard extends State<Bowlard> {
                   ),
                   Positioned(
                     bottom: 0.0,
-                    child: Koukoku(),
+                    child: KoukokuNend(),
                   ),
                 ],
                 fit: StackFit.expand,
