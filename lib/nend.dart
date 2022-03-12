@@ -9,6 +9,7 @@ import 'package:nend_plugin/nend_plugin.dart';
 //テスト用広告ID
 int spotId = 3174;
 String apiKey = "c5cb8bc474345961c6e7a9778c947957ed8e1e4f";
+//String apiKey = "非表示";
 
 //広告
 class KoukokuNend extends StatefulWidget {

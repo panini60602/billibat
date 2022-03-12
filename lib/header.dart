@@ -35,7 +35,23 @@ class HeaderBowlard extends StatelessWidget with PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: true,
-      title: const Text('ボーラード'),
+      title: const Text('ボーラード（バトル）'),
+      backgroundColor: Colors.brown,
+    );
+  }
+}
+
+class HeaderBowlardSolo extends StatelessWidget with PreferredSizeWidget {
+  const HeaderBowlardSolo({Key? key}) : super(key: key);
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      automaticallyImplyLeading: true,
+      title: const Text('ボーラード（１人用）'),
       backgroundColor: Colors.brown,
     );
   }
