@@ -236,7 +236,6 @@ class _MyScoreHyoTate extends State<ScoreHyoTate> {
                         builder: (_) {
                           return AlertDialog(
                             title: const Text("プレイヤー１の名前を入力してください"),
-//                            content: Text("This is the content"),
                             content: TextField(
                               controller: controller,
                             ),
@@ -1535,13 +1534,69 @@ class _MyScoreHyoTate extends State<ScoreHyoTate> {
                     ),
                     onPressed: () {
                       setState(() {
-                        //保存処理
-                        //
-                        //
-                        //
-                        //
-                        //
-                        //
+                        showDialog(
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (_) {
+                            return AlertDialog(
+                              title: const Text("保存しました"),
+                              //                            content: Text("This is the content"),
+                              actions: [
+//                                TextButton(
+//                                  child: const Text("キャンセル"),
+//                                  onPressed: () => Navigator.pop(context),
+//                                ),
+                                TextButton(
+                                  child: const Text("OK"),
+                                  onPressed: () {
+                                    setState(() {
+                                      //保存処理
+                                      saveScore(player1, score110);
+
+                                      SetScore("1011", "");
+                                      SetScore("1012", "");
+                                      SetScore("1021", "");
+                                      SetScore("1022", "");
+                                      SetScore("1031", "");
+                                      SetScore("1032", "");
+                                      SetScore("1041", "");
+                                      SetScore("1042", "");
+                                      SetScore("1051", "");
+                                      SetScore("1052", "");
+                                      SetScore("1061", "");
+                                      SetScore("1062", "");
+                                      SetScore("1071", "");
+                                      SetScore("1072", "");
+                                      SetScore("1081", "");
+                                      SetScore("1082", "");
+                                      SetScore("1091", "");
+                                      SetScore("1092", "");
+                                      SetScore("1101", "");
+                                      SetScore("1102", "");
+                                      SetScore("1103", "");
+
+                                      score101 = "";
+                                      score102 = "";
+                                      score103 = "";
+                                      score104 = "";
+                                      score105 = "";
+                                      score106 = "";
+                                      score107 = "";
+                                      score108 = "";
+                                      score109 = "";
+                                      score110 = "";
+
+                                      //最初に戻る
+                                      selectPos = "1011";
+                                      SetColor(selectPos);
+                                      Navigator.pop(context);
+                                    });
+                                  },
+                                ),
+                              ],
+                            );
+                          },
+                        );
                       });
                     },
                   ),

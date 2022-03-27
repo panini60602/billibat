@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 
 import 'common_buhin.dart';
+import 'db_common.dart';
 
 String s1011 = "", s1012 = "", s1021 = "", s1022 = "", s1031 = "", s1032 = "", s1041 = "", s1042 = "", s1051 = "", s1052 = "";
 String s1061 = "", s1062 = "", s1071 = "", s1072 = "", s1081 = "", s1082 = "", s1091 = "", s1092 = "", s1101 = "", s1102 = "", s1103 = "";
@@ -1044,3 +1045,31 @@ String judgeGetPos(selectPos) {
   log("judgeGetPos: info :judgeGetPos return selectPos[$ret]");
   return ret;
 }
+
+saveScore(player, score) {
+  var ret;
+
+  log("saveScore: info :保存処理を開始します。 score=[$score]");
+  //DBオープン
+//  ret = opneDB;
+//  opneDB();
+
+  //スコアの登録
+  insertScore(player, score);
+  //DBクローズ
+//  closeDB();
+  log("saveScore: info :保存処理を終了します。");
+}
+
+/*
+getScore() {
+  log("getScore: info :データ取得処理を開始します。");
+  //DBオープン
+  opneDB();
+  //スコアの登録
+  selectScore();
+  //DBクローズ
+  closeDB();
+  log("getScore: info :データ取得処理を終了します。");
+}
+ */
